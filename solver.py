@@ -54,8 +54,8 @@ def main():
 
 def letter_freq(s, freq_dict):
     for letter in s:
-        if letter.lower in ALPHABET:
-            freq_dict[letter] += 1
+        if letter.lower() in ALPHABET:
+            freq_dict[letter.lower()] += 1
 
 def letter_freq_file(string_list):
     freq_dict = copy.deepcopy(ALPHADICT)
@@ -65,12 +65,12 @@ def letter_freq_file(string_list):
     return freq_dict
 
 def alpha_position(letter):
-    return ALPHABET.index(letter) + 1
+    return ALPHABET.index(letter.lower()) + 1
 
 def substitute(string, alphabet_by_freq):
     ret = ''
     for letter in string:
-        if letter.lower in ALPHABET:
+        if letter.lower() in ALPHABET:
             ret += alphabet_by_freq[alpha_position(letter)-1]
         else:
             ret += letter
