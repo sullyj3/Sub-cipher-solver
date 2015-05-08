@@ -53,4 +53,25 @@ def substitute(string, alphabet_by_freq):
             ret += letter
     return ret
 
+def is_word(s):
+    return True
+    # test whether a string is in a dictionary.
+
+def is_decoded(sl):
+    new_sl = []
+    for s in sl:
+        s = s.strip().split(" ")
+        new_sl.append(s)
+
+    # new_sl is now a list of lists of words
+    word_count = 0
+    for i in range(10):
+        if is_word(random.choice(random.choice(new_sl))):
+            word_count += 1
+
+    if word_count >= 3: #TODO find a good number to require to be in dictionary. Inherently involves a degree of uncertainty
+        return True
+    else:
+        return False
+
 main()
