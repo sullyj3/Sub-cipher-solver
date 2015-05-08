@@ -32,6 +32,8 @@ def letter_freq(s, freq_dict):
         if letter.lower() in ALPHABET:
             freq_dict[letter.lower()] += 1
 
+# takes a list of strings (usually lines from a file) and returns a dict
+# containing the frequency of every character
 def letter_freq_file(string_list):
     freq_dict = copy.deepcopy(ALPHADICT)
     for s in string_list:
