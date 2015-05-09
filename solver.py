@@ -1,5 +1,6 @@
 import sys
 import copy
+from collections import Counter
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 # could probably use a defaultdict for this.
@@ -73,5 +74,18 @@ def is_decoded(sl):
         return True
     else:
         return False
+
+def ngrams(word, n):
+    if n>len(word):
+        return
+    for i in range(len(word)-n+1):
+        yield word[i:i+n]
+
+def count_ngrams(s, n):
+    counter = Counter()
+    for word in s.split():
+        for ngram in ngrams(word, n):
+            counter[ngram] += 1
+    return counter
 
 main()
